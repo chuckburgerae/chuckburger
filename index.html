@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#F63469" />
-  <meta name="description" content="Chuck Burger bilingual visual menu — Abu Dhabi." />
-  <title>Chuck Burger | Visual Menu</title>
+  <meta name="description" content="Chuck Burger bilingual menu — Abu Dhabi." />
+  <title>Chuck Burger | Menu</title>
 
   <style>
     :root{
@@ -298,12 +298,11 @@
     }
 
     .media-stage{
-      height:clamp(250px,68vw,395px);
-      display:grid;
-      grid-template-columns:1.05fr .95fr;
-      gap:6px;
+      width:100%;
+      aspect-ratio:3 / 2;
       padding:6px;
       background:var(--ink);
+      overflow:hidden;
     }
     .meal-card.reverse .media-stage{grid-template-columns:.95fr 1.05fr}
     .meal-card.reverse .photo-panel{order:2}
@@ -654,6 +653,32 @@
       }
     }
 
+  
+  /* PHOTO-ONLY MENU */
+  .media-stage{
+    display:block !important;
+    height:auto !important;
+    aspect-ratio:3 / 2 !important;
+  }
+  .photo-panel{
+    display:block !important;
+    width:100% !important;
+    height:100% !important;
+    border-radius:23px !important;
+    overflow:hidden !important;
+  }
+  .photo-panel img{
+    width:100% !important;
+    height:100% !important;
+    object-fit:cover !important;
+  }
+  .video-panel,
+  .media-label,
+  .play-ui,
+  .video-missing{
+    display:none !important;
+  }
+
   </style>
 </head>
 
@@ -713,17 +738,25 @@
         nameAr:"تشاك برجر",
         price:22,
         photo:"assets/photos/chuck-burger.webp",
-        video:"assets/videos/chuck-burger.mp4",
         descEn:"Beef patty • lettuce • Chuck sauce",
         descAr:"لحم • خس • صوص تشاك"
       },
+      {
+        category:"Burgers",
+        nameEn:"Double Cheese Burger",
+        nameAr:"دبل تشيز برجر",
+        price:31,
+        photo:"assets/photos/double-cheese-burger.webp",
+        descEn:"Double beef patty • double melted cheese • Chuck sauce",
+        descAr:"دبل لحم • دبل جبن سايح • صوص تشاك"
+      },
+
       {
         category:"Burgers",
         nameEn:"Cheese Burger",
         nameAr:"تشيز برجر",
         price:21,
         photo:"assets/photos/cheese-burger.webp",
-        video:"assets/videos/cheese-burger.mp4",
         descEn:"Beef patty • melted cheese",
         descAr:"لحم • جبن سايح"
       },
@@ -733,7 +766,6 @@
         nameAr:"برجر دجاج بافلو",
         price:25,
         photo:"assets/photos/buffalo-chicken-burger.webp",
-        video:"assets/videos/buffalo-chicken-burger.mp4",
         descEn:"Crispy chicken • Buffalo sauce • lettuce",
         descAr:"دجاج كرسبي • صوص بافلو • خس"
       },
@@ -743,7 +775,6 @@
         nameAr:"برجر ترفل مشروم",
         price:25,
         photo:"assets/photos/truffle-mushroom-burger.webp",
-        video:"assets/videos/truffle-mushroom-burger.mp4",
         descEn:"Beef patty • mushrooms • melted cheese • truffle sauce",
         descAr:"لحم • مشروم • جبن سايح • صوص ترفل"
       },
@@ -753,7 +784,6 @@
         nameAr:"برجر دجاج ناشفيل",
         price:22,
         photo:"assets/photos/nashville-chicken-burger.webp",
-        video:"assets/videos/nashville-chicken-burger.mp4",
         descEn:"Crispy Nashville chicken • coleslaw • sauce",
         descAr:"دجاج ناشفيل كرسبي • كول سلو • صوص"
       },
@@ -763,7 +793,6 @@
         nameAr:"برجر دجاج",
         price:20,
         photo:"assets/photos/chicken-burger.webp",
-        video:"assets/videos/chicken-burger.mp4",
         descEn:"Chicken • lettuce • sauce",
         descAr:"دجاج • خس • صوص"
       },
@@ -773,7 +802,6 @@
         nameAr:"برغر دجاج + بطاطا + بيبسي",
         price:32,
         photo:"assets/photos/chicken-burger-meal.webp",
-        video:"assets/videos/chicken-burger-meal.mp4",
         descEn:"Chicken burger • French fries • Pepsi",
         descAr:"برجر دجاج • بطاطا مقلية • بيبسي"
       },
@@ -783,7 +811,6 @@
         nameAr:"برغر لحم + بيبسي + بطاطا",
         price:32,
         photo:"assets/photos/beef-burger-meal.webp",
-        video:"assets/videos/beef-burger-meal.mp4",
         descEn:"Beef burger • French fries • Pepsi",
         descAr:"برجر لحم • بطاطا مقلية • بيبسي"
       },
@@ -794,7 +821,6 @@
         nameAr:"بطاطس تشاك",
         price:14,
         photo:"assets/photos/chuck-fries.webp",
-        video:"assets/videos/chuck-fries.mp4",
         descEn:"French fries • Chuck sauce • toppings",
         descAr:"بطاطا مقلية • صوص تشاك • إضافات"
       },
@@ -804,7 +830,6 @@
         nameAr:"تشيز فرايز",
         price:12,
         photo:"assets/photos/cheese-fries.webp",
-        video:"assets/videos/cheese-fries.mp4",
         descEn:"French fries • cheese sauce",
         descAr:"بطاطا مقلية • صوص جبن"
       },
@@ -814,7 +839,6 @@
         nameAr:"بطاطس مقلية",
         price:10,
         photo:"assets/photos/french-fries.webp",
-        video:"assets/videos/french-fries.mp4",
         descEn:"Classic French fries",
         descAr:"بطاطا مقلية كلاسيكية"
       },
@@ -824,7 +848,6 @@
         nameAr:"بطاطس دجاج كرسبي",
         price:21,
         photo:"assets/photos/crispy-chicken-fries.webp",
-        video:"assets/videos/crispy-chicken-fries.mp4",
         descEn:"French fries • crispy chicken • cheese sauce",
         descAr:"بطاطا مقلية • دجاج كرسبي • صوص جبن"
       },
@@ -835,7 +858,6 @@
         nameAr:"أجنحة دجاج 6 قطع",
         price:24,
         photo:"assets/photos/chicken-wings-6.webp",
-        video:"assets/videos/chicken-wings-6.mp4",
         descEn:"6 chicken wings • house seasoning • sauce",
         descAr:"6 أجنحة دجاج • تتبيلة المطعم • صوص"
       },
@@ -845,7 +867,6 @@
         nameAr:"أجنحة دجاج بنكهة بافلو",
         price:24,
         photo:"assets/photos/buffalo-wings.webp",
-        video:"assets/videos/buffalo-wings.mp4",
         descEn:"Chicken wings • Buffalo sauce",
         descAr:"أجنحة دجاج • صوص بافلو"
       },
@@ -855,7 +876,6 @@
         nameAr:"أجنحة دجاج 10 قطع",
         price:37,
         photo:"assets/photos/chicken-wings-10.webp",
-        video:"assets/videos/chicken-wings-10.mp4",
         descEn:"10 chicken wings • house seasoning • sauce",
         descAr:"10 أجنحة دجاج • تتبيلة المطعم • صوص"
       },
@@ -865,7 +885,6 @@
         nameAr:"أجنحة دجاج 16 قطعة",
         price:46,
         photo:"assets/photos/chicken-wings-16.webp",
-        video:"assets/videos/chicken-wings-16.mp4",
         descEn:"16 chicken wings • house seasoning • sauce",
         descAr:"16 جناح دجاج • تتبيلة المطعم • صوص"
       },
@@ -876,7 +895,6 @@
         nameAr:"ورق عنب بالرمان 10 حبات",
         price:32,
         photo:"assets/photos/waragz-pomegranate-10.webp",
-        video:"assets/videos/waragz-pomegranate-10.mp4",
         descEn:"10 stuffed grape leaves • pomegranate flavor",
         descAr:"10 حبات ورق عنب محشي • نكهة رمان"
       },
@@ -886,7 +904,6 @@
         nameAr:"ورق عنب بالرمان 20 حبة",
         price:65,
         photo:"assets/photos/waragz-pomegranate-20.webp",
-        video:"assets/videos/waragz-pomegranate-20.mp4",
         descEn:"20 stuffed grape leaves • pomegranate flavor",
         descAr:"20 حبة ورق عنب محشي • نكهة رمان"
       },
@@ -896,7 +913,6 @@
         nameAr:"ورق عنب بالرمان 30 حبة",
         price:90,
         photo:"assets/photos/waragz-pomegranate-30.webp",
-        video:"assets/videos/waragz-pomegranate-30.mp4",
         descEn:"30 stuffed grape leaves • pomegranate flavor",
         descAr:"30 حبة ورق عنب محشي • نكهة رمان"
       },
@@ -907,7 +923,6 @@
         nameAr:"نودلز تشاك",
         price:25,
         photo:"assets/photos/chuck-noodles.webp",
-        video:"assets/videos/chuck-noodles.mp4",
         descEn:"Noodles • Chuck sauce • toppings",
         descAr:"نودلز • صوص تشاك • إضافات"
       }
@@ -934,23 +949,10 @@
       }
 
       menuList.innerHTML = filteredMenu.map((item,index)=>`
-        <article class="meal-card ${index % 2 ? "reverse" : ""}">
+        <article class="meal-card">
           <div class="media-stage">
             <button class="media-panel photo-panel" type="button" aria-label="Open ${item.nameEn} photo">
-              <span class="media-label">PHOTO</span>
               <img src="${item.photo}" alt="${item.nameEn}" loading="lazy">
-            </button>
-
-            <button class="media-panel video-panel" type="button" aria-label="Play ${item.nameEn} video">
-              <span class="media-label">VIDEO</span>
-              <video muted playsinline loop preload="metadata" poster="${item.photo}" data-src="${item.video}"></video>
-              <div class="video-missing">
-                <div>
-                  <strong>Add your video</strong>
-                  <span>${item.video}</span>
-                </div>
-              </div>
-              <div class="play-ui"><span class="play-circle">▶</span></div>
             </button>
           </div>
 
@@ -973,9 +975,7 @@
       `).join("");
 
       attachPhotoEvents();
-      attachVideoEvents();
       observeCards();
-      observeVideos();
     }
 
     function attachPhotoEvents(){
@@ -989,20 +989,7 @@
       });
     }
 
-    function loadVideo(video,panel){
-      if(video.src || panel.dataset.failed==="true") return;
-      video.src=video.dataset.src;
-      video.load();
-
-      video.addEventListener("error",()=>{
-        panel.dataset.failed="true";
-        panel.querySelector(".video-missing").style.display="grid";
-        panel.querySelector(".play-ui").style.display="none";
-        video.style.display="none";
-      },{once:true});
-    }
-
-    function attachVideoEvents(){
+function attachVideoEvents(){
       document.querySelectorAll(".video-panel").forEach(panel=>{
         const video=panel.querySelector("video");
         panel.addEventListener("click",async()=>{
@@ -1035,30 +1022,7 @@
       document.querySelectorAll(".meal-card").forEach(card=>observer.observe(card));
     }
 
-    function observeVideos(){
-      const observer=new IntersectionObserver(entries=>{
-        entries.forEach(entry=>{
-          const panel=entry.target;
-          const video=panel.querySelector("video");
-
-          if(entry.isIntersecting && entry.intersectionRatio>.58){
-            loadVideo(video,panel);
-            if(panel.dataset.failed!=="true"){
-              video.play()
-                .then(()=>panel.classList.add("playing"))
-                .catch(()=>{});
-            }
-          }else{
-            video.pause();
-            panel.classList.remove("playing");
-          }
-        });
-      },{threshold:[0,.58,1]});
-
-      document.querySelectorAll(".video-panel").forEach(panel=>observer.observe(panel));
-    }
-
-    const lightbox=document.getElementById("lightbox");
+const lightbox=document.getElementById("lightbox");
     document.getElementById("lightboxClose").addEventListener("click",()=>{
       lightbox.classList.remove("open");
       lightbox.setAttribute("aria-hidden","true");
